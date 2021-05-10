@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Art/PermanentMarker-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Art/signpost.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Signpost.gd" type="Script" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Rest"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "reverse"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 42.1329, 20.0006 )
+
+[node name="Signpost" type="Node2D"]
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 1.4
+anims/Rest = SubResource( 1 )
+anims/reverse = SubResource( 2 )
+anims/typewriter = SubResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = -168.26
+margin_top = -174.542
+margin_right = 168.74
+margin_bottom = -3.54166
+custom_fonts/font = SubResource( 4 )
+text = "Sample Text"
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Signpost" type="Sprite" parent="."]
+position = Vector2( -0.0745316, 34.7562 )
+scale = Vector2( 0.995031, 0.757561 )
+texture = ExtResource( 2 )
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( 0.561241, 34.2351 )
+shape = SubResource( 5 )
+[connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_Hitbox_body_exited"]

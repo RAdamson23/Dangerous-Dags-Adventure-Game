@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/nature sketch.ogg-4a403b0088794f6225385b966f7228f5.oggstr"
+
+[deps]
+
+source_file="res://Music/nature sketch.ogg"
+dest_files=[ "res://.import/nature sketch.ogg-4a403b0088794f6225385b966f7228f5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

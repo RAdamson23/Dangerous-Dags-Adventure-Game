@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Art/Food.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Chest.gd" type="Script" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15.25, 20.25 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Vibrate"
+length = 0.3
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -15 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Chips" type="Area2D"]
+script = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.375, 2.625 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.0625024, 0.330181 )
+scale = Vector2( 1.2, 1.4 )
+texture = ExtResource( 2 )
+vframes = 5
+hframes = 5
+frame = 20
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 0.25
+anims/Vibrate = SubResource( 2 )
+[connection signal="body_entered" from="." to="." method="_on_Chips_body_entered"]

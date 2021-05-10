@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Please stand by sound effect.ogg-91cf9fcdc3ba680372c23151432253a0.oggstr"
+
+[deps]
+
+source_file="res://Music/Please stand by sound effect.ogg"
+dest_files=[ "res://.import/Please stand by sound effect.ogg-91cf9fcdc3ba680372c23151432253a0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

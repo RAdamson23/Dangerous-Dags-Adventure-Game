@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://SFX/Oof_Damage_Sound.ogg" type="AudioStream" id=1]
+
+[node name="SFX" type="Node"]
+
+[node name="Player_Damage_Taken" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )

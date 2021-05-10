@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Skeleton Hit Bone 2 - QuickSounds.com.ogg-8a8f07cb2a5ef81f6909cd2208c10af6.oggstr"
+
+[deps]
+
+source_file="res://SFX/Skeleton Hit Bone 2 - QuickSounds.com.ogg"
+dest_files=[ "res://.import/Skeleton Hit Bone 2 - QuickSounds.com.ogg-8a8f07cb2a5ef81f6909cd2208c10af6.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

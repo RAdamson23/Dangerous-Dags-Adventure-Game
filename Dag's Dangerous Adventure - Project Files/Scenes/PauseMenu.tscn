@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Art/ButtonStyle.tres" type="StyleBox" id=1]
+[ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=2]
+[ext_resource path="res://Art/PermanentMarker-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Art/ButtonStylePressed.tres" type="StyleBox" id=4]
+[ext_resource path="res://Art/ButtonStyleHover.tres" type="StyleBox" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 3 )
+
+[node name="PauseScreen" type="Control"]
+pause_mode = 2
+margin_right = 174.0
+margin_bottom = 150.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1926.0
+margin_bottom = 1088.0
+color = Color( 1, 1, 1, 0.270588 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resume" type="Button" parent="."]
+margin_left = 808.0
+margin_top = 416.0
+margin_right = 1184.0
+margin_bottom = 529.0
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = ExtResource( 1 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.0235294, 0.843137, 0.764706, 1 )
+custom_colors/font_color_hover = Color( 0.0235294, 0.843137, 0.764706, 1 )
+custom_colors/font_color_pressed = Color( 0.0235294, 0.843137, 0.764706, 1 )
+text = "Resume"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit2Menu" type="Button" parent="."]
+margin_left = 808.135
+margin_top = 580.554
+margin_right = 1188.14
+margin_bottom = 693.554
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = ExtResource( 1 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.0235294, 0.843137, 0.764706, 1 )
+custom_colors/font_color_hover = Color( 0.0235294, 0.843137, 0.764706, 1 )
+custom_colors/font_color_pressed = Color( 0.0235294, 0.843137, 0.764706, 1 )
+text = "Exit to Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="."]
+margin_left = 811.0
+margin_top = 735.0
+margin_right = 1189.0
+margin_bottom = 848.0
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = ExtResource( 1 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.0235294, 0.843137, 0.764706, 1 )
+custom_colors/font_color_hover = Color( 0.0235294, 0.843137, 0.764706, 1 )
+custom_colors/font_color_pressed = Color( 0.0235294, 0.843137, 0.764706, 1 )
+text = "Quit Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="Exit2Menu" to="." method="_on_Exit2Menu_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]

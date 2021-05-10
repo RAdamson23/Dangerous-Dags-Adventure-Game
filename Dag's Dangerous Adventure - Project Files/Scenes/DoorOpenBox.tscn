@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/DoorOpenBox.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/BakerIntroLevel/Door.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "Closed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "Open",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 95.6114, 50.3025 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Door" type="AnimatedSprite" parent="."]
+position = Vector2( 818.553, 273.741 )
+scale = Vector2( 1.44432, 1.5 )
+frames = SubResource( 3 )
+animation = "Closed"
+
+[node name="DoorOpenBox" type="Area2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="Open" type="CollisionShape2D" parent="DoorOpenBox"]
+visible = false
+position = Vector2( 815.866, 272.321 )
+shape = SubResource( 4 )
+[connection signal="body_entered" from="DoorOpenBox" to="DoorOpenBox" method="_on_DoorOpenBox_body_entered"]
+[connection signal="body_exited" from="DoorOpenBox" to="DoorOpenBox" method="_on_DoorOpenBox_body_exited"]

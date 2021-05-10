@@ -1,0 +1,291 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://SFX/Skeleton Death Bone Shatter 3 - QuickSounds.com.ogg" type="AudioStream" id=1]
+[ext_resource path="res://SFX/Skeleton Hit Bone 2 - QuickSounds.com.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Sprites/Skeleton/Death.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Skeleton/Walk.png" type="Texture" id=4]
+[ext_resource path="res://SFX/Skeleton Hit Bone - QuickSounds.com.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Sprites/Skeleton/Attack.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Skeleton/Take Hit.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Skeleton/Idle.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/Skeleton.gd" type="Script" id=9]
+[ext_resource path="res://Sprites/Skeleton/Shield.png" type="Texture" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 21.5306, 44.4197 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 12.5581, 39.5851 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 32.1418, 29.1015 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 32.6962, 32.5888 )
+
+[sub_resource type="Animation" id=5]
+length = 0.55
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Animations/Attack:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.08, 0.16, 0.25, 0.34, 0.43, 0.52 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 3, 4, 5, 6, 7 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.43, 0.52, 0.61 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "hit"
+}, {
+"args": [  ],
+"method": "end_of_hit"
+}, {
+"args": [  ],
+"method": "start_run"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "BLOCK"
+length = 0.4
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Animations/Block:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 3 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.35
+tracks/0/type = "value"
+tracks/0/path = NodePath("Animations/Dead:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.4
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Animations/Hit:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.12, 0.24, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.5
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Animations/Idle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.35
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Animations/Run:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 3 ]
+}
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 72.7394, 19.9355 )
+
+[sub_resource type="CapsuleShape2D" id=12]
+radius = 10.8003
+height = 6.00807
+
+[node name="Skeleton" type="KinematicBody2D" groups=[
+"Enemies",
+]]
+collision_layer = 2147483651
+collision_mask = 2147483651
+script = ExtResource( 9 )
+
+[node name="Animations" type="Node2D" parent="."]
+
+[node name="Attack" type="Sprite" parent="Animations"]
+visible = false
+position = Vector2( -0.383803, 0.997293 )
+scale = Vector2( 1.28631, 1.38241 )
+texture = ExtResource( 6 )
+hframes = 8
+
+[node name="Run" type="Sprite" parent="Animations"]
+visible = false
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 4 )
+hframes = 4
+frame = 3
+
+[node name="Hit" type="Sprite" parent="Animations"]
+visible = false
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 7 )
+hframes = 4
+frame = 2
+
+[node name="Dead" type="Sprite" parent="Animations"]
+visible = false
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 3 )
+hframes = 4
+frame = 3
+
+[node name="Idle" type="Sprite" parent="Animations"]
+visible = false
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 8 )
+hframes = 4
+
+[node name="Block" type="Sprite" parent="Animations"]
+position = Vector2( -0.529785, 0 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 10 )
+hframes = 4
+frame = 3
+
+[node name="Hitbox" type="Area2D" parent="." groups=[
+"Collision",
+]]
+collision_layer = 2147483655
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( 8.51635, -4.10967 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=[
+"Collision",
+]]
+position = Vector2( 4.11024, -0.322522 )
+shape = SubResource( 2 )
+
+[node name="PlayerDetector" type="Area2D" parent="." groups=[
+"Collision",
+]]
+visible = false
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2( 62.8635, 1.91747 )
+shape = SubResource( 3 )
+
+[node name="AttackDetector" type="Area2D" parent="." groups=[
+"Collision",
+]]
+visible = false
+monitoring = false
+monitorable = false
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetector"]
+position = Vector2( 62.3091, -0.993818 )
+shape = SubResource( 4 )
+
+[node name="EnemyStates" type="AnimationPlayer" parent="."]
+anims/ATTACK = SubResource( 5 )
+anims/BLOCK = SubResource( 6 )
+anims/DEAD = SubResource( 7 )
+anims/HIT = SubResource( 8 )
+anims/IDLE = SubResource( 9 )
+anims/RUN = SubResource( 10 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 33.8692, 14.0956 )
+enabled = true
+cast_to = Vector2( 0, 28 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+
+[node name="FireballDetector" type="Area2D" parent="." groups=[
+"Collision",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireballDetector"]
+position = Vector2( 132.716, -7.18823 )
+shape = SubResource( 11 )
+
+[node name="ShieldHitbox" type="Area2D" parent="." groups=[
+"Collision",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShieldHitbox"]
+position = Vector2( 44.5166, -6.4809 )
+shape = SubResource( 12 )
+disabled = true
+
+[node name="BlockCooldown" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+[connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]
+[connection signal="body_entered" from="AttackDetector" to="." method="_on_AttackDetector_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="body_entered" from="FireballDetector" to="." method="_on_FireballDetector_body_entered"]
+[connection signal="body_entered" from="ShieldHitbox" to="." method="_on_ShieldHitbox_body_entered"]

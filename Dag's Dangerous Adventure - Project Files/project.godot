@@ -1,0 +1,80 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[application]
+
+config/name="Dag's Dangerous Adventure"
+run/main_scene="res://Scenes/TitleScreen.tscn"
+config/icon="res://Sprites/Fireball/Fireball2.png"
+config/windows_native_icon="res://Fireball2.ico"
+
+[autoload]
+
+Globals="*res://Scripts/Globals.gd"
+HealthBar="*res://Scripts/Health_Bar.gd"
+Sfx="*res://Scenes/SFX.tscn"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/size/borderless=true
+window/size/fullscreen=true
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PoolStringArray(  )
+
+[input]
+
+ui_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
+ ]
+}
+Mouse_Left_Click={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="Environment"
+2d_physics/layer_2="Enemies"
+2d_physics/layer_3="Player"
+
+[rendering]
+
+environment/default_clear_color=Color( 0, 0, 0, 1 )
+
+[world]
+
+2d/cell_size=50

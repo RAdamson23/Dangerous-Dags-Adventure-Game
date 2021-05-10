@@ -1,0 +1,2202 @@
+[gd_scene load_steps=112 format=2]
+
+[ext_resource path="res://Scenes/Cave_Tilemap2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Health_and_Stamina_Bar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/PauseMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Art/01_Cave/Rocks_&_crystals/crystals/crystal_pink_02.png" type="Texture" id=5]
+[ext_resource path="res://Art/01_Cave/Rocks_&_crystals/crystals/crystal_yellow_07.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Goblin.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Spike.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Crystal.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/FallingSpikes.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/MovingPlatform.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/Pie.gd" type="Script" id=12]
+[ext_resource path="res://Sprites/Pies/ButterChickenIdle2.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Pies/MincePieIdle1.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Pies/MincePieIdle0.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Pies/ButterChickenIdle3.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Pies/SteacknCheeseIdle3.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Pies/ButterChickenIdle0.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Pies/ButterChickenIdle1.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Pies/SteacknCheeseIdle0.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Pies/MincePieIdle2.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Pies/SteacknCheeseIdle1.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Pies/SteacknCheeseIdle2.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Pies/MincePieIdle3.png" type="Texture" id=24]
+[ext_resource path="res://Scenes/Chips.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Scripts/CaveLevel2.gd" type="Script" id=26]
+[ext_resource path="res://Scenes/OrbitingPlatformController.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Art/BG/cave_bg_1920x1080_01.png" type="Texture" id=28]
+[ext_resource path="res://Art/BG/cave_bg_1920x1080_00.png" type="Texture" id=29]
+[ext_resource path="res://Art/BG/cave_bg_1920x1080_03.png" type="Texture" id=30]
+[ext_resource path="res://Art/BG/cave_bg_1920x1080_02.png" type="Texture" id=31]
+[ext_resource path="res://Scenes/Portal.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Music/07 Underground Encounters.ogg" type="AudioStream" id=33]
+[ext_resource path="res://Scenes/Skeleton.tscn" type="PackedScene" id=34]
+[ext_resource path="res://Scenes/Signpost.tscn" type="PackedScene" id=35]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Flash"
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Rest"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Flash"
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Rest"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Flash"
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Rest"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Flash"
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Rest"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Flash"
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Rest"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=15]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=16]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=17]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=18]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "Flash"
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "Rest"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=21]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=22]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=23]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=24]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "Flash"
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "Rest"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=27]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=28]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=29]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=30]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=31]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=32]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=33]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=34]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=35]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=36]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=37]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=38]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=39]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=40]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=41]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=42]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=43]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=44]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=45]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=46]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=47]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=48]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=49]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=50]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=51]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=52]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=53]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=54]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=55]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=56]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=57]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=58]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=59]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=60]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=61]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=62]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=63]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=64]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=65]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=66]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=67]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=68]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=69]
+length = 0.55
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=70]
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="SpriteFrames" id=71]
+animations = [ {
+"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 13 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "Mince",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=72]
+extents = Vector2( 21.447, 10.4658 )
+
+[sub_resource type="SpriteFrames" id=73]
+animations = [ {
+"frames": [ ExtResource( 15 ), ExtResource( 14 ), ExtResource( 21 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=74]
+extents = Vector2( 21.7255, 12.2432 )
+
+[sub_resource type="SpriteFrames" id=75]
+animations = [ {
+"frames": [ ExtResource( 20 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=76]
+extents = Vector2( 31.7342, 16.0485 )
+
+[node name="Cave" type="Node2D"]
+script = ExtResource( 26 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( -868.379, -119.443 )
+scale = Vector2( 2.75363, 4.18563 )
+texture = ExtResource( 30 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( -868.379, -117.856 )
+scale = Vector2( 2.75363, 4.18563 )
+texture = ExtResource( 30 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( -867.997, -229.404 )
+scale = Vector2( 2.75363, 4.27997 )
+texture = ExtResource( 30 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( -853.943, -398.365 )
+scale = Vector2( 2.7392, 4.5083 )
+texture = ExtResource( 31 )
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2( -854.63, -403.613 )
+scale = Vector2( 3.01018, 4.5628 )
+texture = ExtResource( 28 )
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2( -849.585, -400.417 )
+scale = Vector2( 2.7392, 4.53283 )
+texture = ExtResource( 29 )
+centered = false
+
+[node name="MainHUD" parent="." instance=ExtResource( 3 )]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( -42.3503, 3926.83 )
+
+[node name="TileMap" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( -3, 0, 0, -2, 1, 0, -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, -65531, 1, 0, -65530, 1, 0, -65529, 1, 0, -65528, 1, 0, -65527, 1, 0, -65526, 1, 0, -65525, 1, 0, -65524, 1, 0, -65523, 1, 0, -65522, 1, 0, -65521, 1, 0, -65520, 1, 0, -65519, 1, 0, -65518, 1, 0, -65517, 1, 0, -65516, 1, 0, -65515, 1, 0, -65514, 1, 0, -65513, 1, 0, -65512, 1, 0, -65511, 1, 0, -65510, 1, 0, -65509, 1, 0, -65508, 1, 0, -65507, 1, 0, -65506, 1, 0, -65505, 1, 0, -65504, 1, 0, -65503, 1, 0, -65502, 1, 0, -65501, 1, 0, -65500, 1, 0, -65499, 1, 0, -65498, 1, 0, -65497, 1, 0, -65496, 1, 0, -65495, 1, 0, -65494, 1, 0, -65493, 1, 0, -65492, 1, 0, -65491, 1, 0, -65490, 1, 0, -65489, 1, 0, -65488, 1, 0, -65487, 1, 0, -65486, 1, 0, -65485, 1, 0, -65484, 1, 0, -65483, 1, 0, -65482, 1, 0, -65481, 1, 0, -65480, 1, 0, -65479, 1, 0, -65478, 3, 0, 65533, 4, 0, 58, 8, 0, 131069, 4, 0, 65594, 8, 0, 196605, 4, 0, 131130, 8, 0, 262141, 4, 0, 196666, 8, 0, 327677, 4, 0, 262161, 0, 0, 262162, 1, 0, 262163, 2, 0, 262166, 2, 0, 262169, 2, 0, 262172, 3, 0, 262190, 0, 0, 262191, 1, 0, 262192, 1, 0, 262193, 2, 0, 262196, 2, 0, 262199, 2, 0, 262202, 8, 0, 393213, 4, 0, 327697, 5, 0, 327698, 6, 0, 327699, 6, 0, 327700, 6, 0, 327701, 6, 0, 327702, 6, 0, 327703, 6, 0, 327704, 6, 0, 327705, 6, 0, 327706, 6, 0, 327707, 6, 0, 327708, 9, 0, 327726, 4, 0, 327727, 7, 0, 327728, 7, 0, 327729, 7, 0, 327730, 7, 0, 327731, 7, 0, 327732, 7, 0, 327733, 7, 0, 327734, 7, 0, 327735, 7, 0, 327736, 7, 0, 327737, 7, 0, 327738, 8, 0, 458749, 4, 0, 393222, 0, 0, 393223, 1, 0, 393224, 2, 0, 393227, 3, 0, 393250, 0, 0, 393251, 1, 0, 393252, 2, 0, 393255, 3, 0, 393262, 5, 0, 393263, 6, 0, 393264, 6, 0, 393265, 6, 0, 393266, 6, 0, 393267, 6, 0, 393268, 6, 0, 393269, 6, 0, 393270, 6, 0, 393271, 6, 0, 393272, 6, 0, 393273, 6, 0, 393274, 8, 0, 524285, 4, 0, 458758, 5, 0, 458759, 6, 0, 458760, 6, 0, 458761, 6, 0, 458762, 6, 0, 458763, 9, 0, 458786, 5, 0, 458787, 6, 0, 458788, 6, 0, 458789, 6, 0, 458790, 6, 0, 458791, 9, 0, 458810, 8, 0, 589821, 4, 0, 524346, 8, 0, 655357, 4, 0, 589882, 8, 0, 720893, 4, 0, 655418, 8, 0, 786429, 4, 0, 720899, 0, 0, 720900, 2, 0, 720903, 2, 0, 720906, 2, 0, 720909, 2, 0, 720912, 2, 0, 720915, 2, 0, 720918, 2, 0, 720921, 2, 0, 720924, 2, 0, 720927, 2, 0, 720930, 1, 0, 720931, 3, 0, 720945, 0, 0, 720946, 2, 0, 720949, 2, 0, 720952, 1, 0, 720953, 1, 0, 720954, 8, 0, 851965, 4, 0, 786435, 4, 0, 786436, 7, 0, 786437, 7, 0, 786438, 7, 0, 786439, 7, 0, 786440, 7, 0, 786441, 7, 0, 786442, 7, 0, 786443, 7, 0, 786444, 7, 0, 786445, 7, 0, 786446, 7, 0, 786447, 7, 0, 786448, 7, 0, 786449, 7, 0, 786450, 7, 0, 786451, 7, 0, 786452, 7, 0, 786453, 7, 0, 786454, 7, 0, 786455, 7, 0, 786456, 7, 0, 786457, 7, 0, 786458, 7, 0, 786459, 7, 0, 786460, 7, 0, 786461, 7, 0, 786462, 7, 0, 786463, 7, 0, 786464, 7, 0, 786465, 7, 0, 786466, 7, 0, 786467, 8, 0, 786481, 4, 0, 786482, 7, 0, 786483, 7, 0, 786484, 7, 0, 786485, 7, 0, 786486, 7, 0, 786487, 7, 0, 786488, 7, 0, 786489, 7, 0, 786490, 8, 0, 917501, 4, 0, 851971, 5, 0, 851972, 6, 0, 851973, 6, 0, 851974, 6, 0, 851975, 6, 0, 851976, 6, 0, 851977, 6, 0, 851978, 6, 0, 851979, 6, 0, 851980, 6, 0, 851981, 6, 0, 851982, 6, 0, 851983, 6, 0, 851984, 6, 0, 851985, 6, 0, 851986, 6, 0, 851987, 6, 0, 851988, 6, 0, 851989, 6, 0, 851990, 6, 0, 851991, 6, 0, 851992, 6, 0, 851993, 6, 0, 851994, 6, 0, 851995, 6, 0, 851996, 6, 0, 851997, 6, 0, 851998, 6, 0, 851999, 6, 0, 852000, 6, 0, 852001, 6, 0, 852002, 6, 0, 852003, 9, 0, 852017, 5, 0, 852018, 6, 0, 852019, 6, 0, 852020, 6, 0, 852021, 6, 0, 852022, 6, 0, 852023, 6, 0, 852024, 6, 0, 852025, 6, 0, 852026, 8, 0, 983037, 4, 0, 917562, 8, 0, 1048573, 4, 0, 983098, 8, 0, 1114109, 4, 0, 1048634, 8, 0, 1179645, 4, 0, 1114170, 8, 0, 1245181, 4, 0, 1179706, 8, 0, 1310717, 4, 0, 1245242, 8, 0, 1376253, 4, 0, 1310778, 8, 0, 1441789, 4, 0, 1376314, 8, 0, 1507325, 4, 0, 1507326, 1, 0, 1507327, 1, 0, 1441792, 1, 0, 1441793, 1, 0, 1441794, 1, 0, 1441795, 1, 0, 1441796, 1, 0, 1441797, 1, 0, 1441798, 1, 0, 1441799, 1, 0, 1441800, 1, 0, 1441801, 16, 0, 1441806, 17, 0, 1441807, 1, 0, 1441808, 1, 0, 1441809, 1, 0, 1441810, 1, 0, 1441811, 1, 0, 1441812, 1, 0, 1441813, 1, 0, 1441814, 3, 0, 1441830, 0, 0, 1441831, 2, 0, 1441834, 2, 0, 1441837, 16, 0, 1441842, 17, 0, 1441843, 2, 0, 1441846, 2, 0, 1441849, 1, 0, 1441850, 8, 0, 1572861, 4, 0, 1572862, 7, 0, 1572863, 7, 0, 1507328, 7, 0, 1507329, 7, 0, 1507330, 7, 0, 1507331, 7, 0, 1507332, 7, 0, 1507333, 7, 0, 1507334, 7, 0, 1507335, 7, 0, 1507336, 7, 0, 1507337, 18, 0, 1507338, 1, 0, 1507339, 2, 0, 1507342, 19, 0, 1507343, 7, 0, 1507344, 7, 0, 1507345, 7, 0, 1507346, 7, 0, 1507347, 7, 0, 1507348, 7, 0, 1507349, 7, 0, 1507350, 8, 0, 1507366, 4, 0, 1507367, 7, 0, 1507368, 7, 0, 1507369, 7, 0, 1507370, 7, 0, 1507371, 7, 0, 1507372, 7, 0, 1507373, 18, 0, 1507374, 2, 0, 1507377, 1, 0, 1507378, 19, 0, 1507379, 7, 0, 1507380, 7, 0, 1507381, 7, 0, 1507382, 7, 0, 1507383, 7, 0, 1507384, 7, 0, 1507385, 7, 0, 1507386, 8, 0, 1638397, 4, 0, 1638398, 6, 0, 1638399, 6, 0, 1572864, 6, 0, 1572865, 6, 0, 1572866, 6, 0, 1572867, 6, 0, 1572868, 6, 0, 1572869, 6, 0, 1572870, 6, 0, 1572871, 6, 0, 1572872, 6, 0, 1572873, 6, 0, 1572874, 6, 0, 1572875, 6, 0, 1572876, 6, 0, 1572877, 6, 0, 1572878, 6, 0, 1572879, 6, 0, 1572880, 6, 0, 1572881, 6, 0, 1572882, 6, 0, 1572883, 6, 0, 1572884, 6, 0, 1572885, 6, 0, 1572886, 9, 0, 1572902, 5, 0, 1572903, 6, 0, 1572904, 6, 0, 1572905, 6, 0, 1572906, 6, 0, 1572907, 6, 0, 1572908, 6, 0, 1572909, 6, 0, 1572910, 6, 0, 1572911, 6, 0, 1572912, 6, 0, 1572913, 6, 0, 1572914, 6, 0, 1572915, 6, 0, 1572916, 6, 0, 1572917, 6, 0, 1572918, 6, 0, 1572919, 6, 0, 1572920, 6, 0, 1572921, 6, 0, 1572922, 8, 0, 1703933, 4, 0, 1638458, 8, 0, 1769469, 4, 0, 1703994, 8, 0, 1835005, 4, 0, 1769530, 8, 0, 1900541, 4, 0, 1835066, 8, 0, 1966077, 4, 0, 1900602, 8, 0, 2031613, 4, 0, 1966138, 8, 0, 2097149, 4, 0, 2031674, 8, 0, 2162685, 4, 0, 2097177, 0, 0, 2097178, 1, 0, 2097179, 2, 0, 2097182, 2, 0, 2097185, 2, 0, 2097188, 3, 0, 2097210, 8, 0, 2228221, 4, 0, 2162713, 5, 0, 2162714, 6, 0, 2162715, 6, 0, 2162716, 6, 0, 2162717, 6, 0, 2162718, 6, 0, 2162719, 6, 0, 2162720, 6, 0, 2162721, 6, 0, 2162722, 6, 0, 2162723, 6, 0, 2162724, 9, 0, 2162746, 8, 0, 2293757, 4, 0, 2228238, 0, 0, 2228239, 1, 0, 2228240, 2, 0, 2228243, 3, 0, 2228266, 0, 0, 2228267, 1, 0, 2228268, 2, 0, 2228271, 3, 0, 2228282, 8, 0, 2359293, 4, 0, 2293774, 5, 0, 2293775, 6, 0, 2293776, 6, 0, 2293777, 6, 0, 2293778, 6, 0, 2293779, 9, 0, 2293802, 5, 0, 2293803, 6, 0, 2293804, 6, 0, 2293805, 6, 0, 2293806, 6, 0, 2293807, 9, 0, 2293818, 8, 0, 2424829, 4, 0, 2359354, 8, 0, 2490365, 4, 0, 2424890, 8, 0, 2555901, 4, 0, 2490426, 8, 0, 2621437, 4, 0, 2555962, 8, 0, 2686973, 4, 0, 2621442, 0, 0, 2621443, 1, 0, 2621444, 1, 0, 2621445, 1, 0, 2621446, 1, 0, 2621447, 1, 0, 2621448, 1, 0, 2621449, 1, 0, 2621450, 1, 0, 2621451, 1, 0, 2621452, 1, 0, 2621453, 1, 0, 2621454, 1, 0, 2621455, 1, 0, 2621456, 1, 0, 2621457, 1, 0, 2621458, 1, 0, 2621459, 16, 0, 2621464, 17, 0, 2621465, 1, 0, 2621466, 1, 0, 2621467, 1, 0, 2621468, 1, 0, 2621469, 1, 0, 2621470, 1, 0, 2621471, 1, 0, 2621472, 1, 0, 2621473, 1, 0, 2621474, 1, 0, 2621475, 1, 0, 2621476, 1, 0, 2621477, 1, 0, 2621478, 16, 0, 2621483, 17, 0, 2621484, 1, 0, 2621485, 1, 0, 2621486, 1, 0, 2621487, 1, 0, 2621488, 1, 0, 2621489, 1, 0, 2621490, 1, 0, 2621491, 1, 0, 2621492, 1, 0, 2621493, 2, 0, 2621496, 1, 0, 2621497, 1, 0, 2621498, 8, 0, 2752509, 4, 0, 2686978, 4, 0, 2686979, 7, 0, 2686980, 7, 0, 2686981, 7, 0, 2686982, 7, 0, 2686983, 7, 0, 2686984, 7, 0, 2686985, 7, 0, 2686986, 7, 0, 2686987, 7, 0, 2686988, 7, 0, 2686989, 7, 0, 2686990, 7, 0, 2686991, 7, 0, 2686992, 7, 0, 2686993, 7, 0, 2686994, 7, 0, 2686995, 18, 0, 2686996, 1, 0, 2686997, 1, 0, 2686998, 1, 0, 2686999, 1, 0, 2687000, 19, 0, 2687001, 7, 0, 2687002, 7, 0, 2687003, 7, 0, 2687004, 7, 0, 2687005, 7, 0, 2687006, 7, 0, 2687007, 7, 0, 2687008, 7, 0, 2687009, 7, 0, 2687010, 7, 0, 2687011, 7, 0, 2687012, 7, 0, 2687013, 7, 0, 2687014, 18, 0, 2687015, 1, 0, 2687016, 1, 0, 2687017, 1, 0, 2687018, 1, 0, 2687019, 19, 0, 2687020, 7, 0, 2687021, 7, 0, 2687022, 7, 0, 2687023, 7, 0, 2687024, 7, 0, 2687025, 7, 0, 2687026, 7, 0, 2687027, 7, 0, 2687028, 7, 0, 2687029, 7, 0, 2687030, 7, 0, 2687031, 7, 0, 2687032, 7, 0, 2687033, 7, 0, 2687034, 8, 0, 2818045, 4, 0, 2752514, 5, 0, 2752515, 6, 0, 2752516, 6, 0, 2752517, 6, 0, 2752518, 6, 0, 2752519, 6, 0, 2752520, 6, 0, 2752521, 6, 0, 2752522, 6, 0, 2752523, 6, 0, 2752524, 6, 0, 2752525, 6, 0, 2752526, 6, 0, 2752527, 6, 0, 2752528, 6, 0, 2752529, 6, 0, 2752530, 6, 0, 2752531, 6, 0, 2752532, 6, 0, 2752533, 6, 0, 2752534, 6, 0, 2752535, 6, 0, 2752536, 6, 0, 2752537, 6, 0, 2752538, 6, 0, 2752539, 6, 0, 2752540, 6, 0, 2752541, 6, 0, 2752542, 6, 0, 2752543, 6, 0, 2752544, 6, 0, 2752545, 6, 0, 2752546, 6, 0, 2752547, 6, 0, 2752548, 6, 0, 2752549, 6, 0, 2752550, 6, 0, 2752551, 6, 0, 2752552, 6, 0, 2752553, 6, 0, 2752554, 6, 0, 2752555, 6, 0, 2752556, 6, 0, 2752557, 6, 0, 2752558, 6, 0, 2752559, 6, 0, 2752560, 6, 0, 2752561, 6, 0, 2752562, 6, 0, 2752563, 6, 0, 2752564, 6, 0, 2752565, 6, 0, 2752566, 6, 0, 2752567, 6, 0, 2752568, 6, 0, 2752569, 6, 0, 2752570, 8, 0, 2883581, 4, 0, 2818106, 8, 0, 2949117, 4, 0, 2883642, 8, 0, 3014653, 4, 0, 2949178, 8, 0, 3080189, 4, 0, 3014668, 0, 0, 3014669, 1, 0, 3014670, 1, 0, 3014671, 1, 0, 3014672, 3, 0, 3014714, 8, 0, 3145725, 4, 0, 3080204, 5, 0, 3080205, 6, 0, 3080206, 6, 0, 3080207, 6, 0, 3080208, 9, 0, 3080250, 8, 0, 3211261, 4, 0, 3145786, 8, 0, 3276797, 4, 0, 3211322, 8, 0, 3342333, 4, 0, 3276858, 8, 0, 3407869, 4, 0, 3407870, 1, 0, 3407871, 2, 0, 3342338, 2, 0, 3342341, 2, 0, 3342344, 3, 0, 3342359, 0, 0, 3342360, 2, 0, 3342363, 2, 0, 3342366, 2, 0, 3342369, 2, 0, 3342372, 2, 0, 3342375, 2, 0, 3342378, 2, 0, 3342381, 2, 0, 3342383, 3, 0, 3342389, 0, 0, 3342390, 2, 0, 3342393, 1, 0, 3342394, 8, 0, 3473405, 4, 0, 3473406, 6, 0, 3473407, 6, 0, 3407872, 6, 0, 3407873, 6, 0, 3407874, 6, 0, 3407875, 6, 0, 3407876, 6, 0, 3407877, 6, 0, 3407878, 6, 0, 3407879, 6, 0, 3407880, 9, 0, 3407895, 5, 0, 3407896, 6, 0, 3407897, 6, 0, 3407898, 6, 0, 3407899, 6, 0, 3407900, 6, 0, 3407901, 6, 0, 3407902, 6, 0, 3407903, 6, 0, 3407904, 6, 0, 3407905, 6, 0, 3407906, 6, 0, 3407907, 6, 0, 3407908, 6, 0, 3407909, 6, 0, 3407910, 6, 0, 3407911, 6, 0, 3407912, 6, 0, 3407913, 6, 0, 3407914, 6, 0, 3407915, 6, 0, 3407916, 6, 0, 3407917, 6, 0, 3407918, 6, 0, 3407919, 9, 0, 3407925, 5, 0, 3407926, 6, 0, 3407927, 6, 0, 3407928, 6, 0, 3407929, 6, 0, 3407930, 8, 0, 3538941, 4, 0, 3473466, 8, 0, 3604477, 4, 0, 3539002, 8, 0, 3670013, 4, 0, 3604538, 8, 0, 3735549, 4, 0, 3670052, 0, 0, 3670053, 1, 0, 3670054, 1, 0, 3670055, 1, 0, 3670056, 1, 0, 3670057, 1, 0, 3670058, 3, 0, 3670069, 0, 0, 3670070, 2, 0, 3670073, 1, 0, 3670074, 8, 0, 3801085, 4, 0, 3735588, 4, 0, 3735589, 7, 0, 3735590, 7, 0, 3735591, 7, 0, 3735592, 7, 0, 3735593, 7, 0, 3735594, 8, 0, 3735605, 5, 0, 3735606, 6, 0, 3735607, 6, 0, 3735608, 6, 0, 3735609, 6, 0, 3735610, 8, 0, 3866621, 4, 0, 3801124, 5, 0, 3801125, 6, 0, 3801126, 6, 0, 3801127, 6, 0, 3801128, 6, 0, 3801129, 6, 0, 3801130, 9, 0, 3801146, 8, 0, 3932157, 4, 0, 3866682, 8, 0, 3997693, 4, 0, 3932218, 8, 0, 4063229, 4, 0, 3997754, 8, 0, 4128765, 4, 0, 4128766, 1, 0, 4128767, 1, 0, 4063232, 1, 0, 4063233, 1, 0, 4063234, 1, 0, 4063235, 1, 0, 4063236, 1, 0, 4063237, 1, 0, 4063238, 1, 0, 4063239, 1, 0, 4063240, 16, 0, 4063245, 17, 0, 4063246, 1, 0, 4063247, 1, 0, 4063248, 1, 0, 4063249, 1, 0, 4063250, 1, 0, 4063251, 1, 0, 4063252, 1, 0, 4063253, 1, 0, 4063254, 1, 0, 4063255, 1, 0, 4063256, 1, 0, 4063257, 16, 0, 4063262, 17, 0, 4063263, 1, 0, 4063264, 1, 0, 4063265, 1, 0, 4063266, 1, 0, 4063267, 1, 0, 4063268, 1, 0, 4063269, 1, 0, 4063270, 1, 0, 4063271, 1, 0, 4063272, 1, 0, 4063273, 1, 0, 4063274, 1, 0, 4063275, 1, 0, 4063276, 1, 0, 4063277, 1, 0, 4063278, 1, 0, 4063279, 1, 0, 4063280, 1, 0, 4063281, 1, 0, 4063282, 1, 0, 4063283, 1, 0, 4063284, 1, 0, 4063285, 1, 0, 4063286, 1, 0, 4063287, 1, 0, 4063288, 1, 0, 4063289, 1, 0, 4063290, 8, 0, 4194301, 4, 0, 4194302, 7, 0, 4194303, 7, 0, 4128768, 7, 0, 4128769, 7, 0, 4128770, 7, 0, 4128771, 7, 0, 4128772, 7, 0, 4128773, 7, 0, 4128774, 7, 0, 4128775, 7, 0, 4128776, 18, 0, 4128777, 1, 0, 4128778, 1, 0, 4128779, 1, 0, 4128780, 1, 0, 4128781, 19, 0, 4128782, 7, 0, 4128783, 7, 0, 4128784, 7, 0, 4128785, 7, 0, 4128786, 7, 0, 4128787, 7, 0, 4128788, 7, 0, 4128789, 7, 0, 4128790, 7, 0, 4128791, 7, 0, 4128792, 7, 0, 4128793, 18, 0, 4128794, 1, 0, 4128795, 1, 0, 4128796, 1, 0, 4128797, 1, 0, 4128798, 19, 0, 4128799, 7, 0, 4128800, 7, 0, 4128801, 7, 0, 4128802, 7, 0, 4128803, 7, 0, 4128804, 7, 0, 4128805, 7, 0, 4128806, 7, 0, 4128807, 7, 0, 4128808, 7, 0, 4128809, 7, 0, 4128810, 7, 0, 4128811, 7, 0, 4128812, 7, 0, 4128813, 7, 0, 4128814, 7, 0, 4128815, 7, 0, 4128816, 7, 0, 4128817, 7, 0, 4128818, 7, 0, 4128819, 7, 0, 4128820, 7, 0, 4128821, 7, 0, 4128822, 7, 0, 4128823, 7, 0, 4128824, 7, 0, 4128825, 7, 0, 4128826, 8, 0, 4259837, 4, 0, 4259838, 7, 0, 4259839, 7, 0, 4194304, 7, 0, 4194305, 7, 0, 4194306, 7, 0, 4194307, 7, 0, 4194308, 7, 0, 4194309, 7, 0, 4194310, 7, 0, 4194311, 7, 0, 4194312, 7, 0, 4194313, 7, 0, 4194314, 7, 0, 4194315, 7, 0, 4194316, 7, 0, 4194317, 7, 0, 4194318, 7, 0, 4194319, 7, 0, 4194320, 7, 0, 4194321, 7, 0, 4194322, 7, 0, 4194323, 7, 0, 4194324, 7, 0, 4194325, 7, 0, 4194326, 7, 0, 4194327, 7, 0, 4194328, 7, 0, 4194329, 7, 0, 4194330, 7, 0, 4194331, 7, 0, 4194332, 7, 0, 4194333, 7, 0, 4194334, 7, 0, 4194335, 7, 0, 4194336, 7, 0, 4194337, 7, 0, 4194338, 7, 0, 4194339, 7, 0, 4194340, 7, 0, 4194341, 7, 0, 4194342, 7, 0, 4194343, 7, 0, 4194344, 7, 0, 4194345, 7, 0, 4194346, 7, 0, 4194347, 7, 0, 4194348, 7, 0, 4194349, 7, 0, 4194350, 7, 0, 4194351, 7, 0, 4194352, 7, 0, 4194353, 7, 0, 4194354, 7, 0, 4194355, 7, 0, 4194356, 7, 0, 4194357, 7, 0, 4194358, 7, 0, 4194359, 7, 0, 4194360, 7, 0, 4194361, 7, 0, 4194362, 8, 0, 4325373, 5, 0, 4325374, 6, 0, 4325375, 6, 0, 4259840, 6, 0, 4259841, 6, 0, 4259842, 6, 0, 4259843, 6, 0, 4259844, 6, 0, 4259845, 6, 0, 4259846, 6, 0, 4259847, 6, 0, 4259848, 6, 0, 4259849, 6, 0, 4259850, 6, 0, 4259851, 6, 0, 4259852, 6, 0, 4259853, 6, 0, 4259854, 6, 0, 4259855, 6, 0, 4259856, 6, 0, 4259857, 6, 0, 4259858, 6, 0, 4259859, 6, 0, 4259860, 6, 0, 4259861, 6, 0, 4259862, 6, 0, 4259863, 6, 0, 4259864, 6, 0, 4259865, 6, 0, 4259866, 6, 0, 4259867, 6, 0, 4259868, 6, 0, 4259869, 6, 0, 4259870, 6, 0, 4259871, 6, 0, 4259872, 6, 0, 4259873, 6, 0, 4259874, 6, 0, 4259875, 6, 0, 4259876, 6, 0, 4259877, 6, 0, 4259878, 6, 0, 4259879, 6, 0, 4259880, 6, 0, 4259881, 6, 0, 4259882, 6, 0, 4259883, 6, 0, 4259884, 6, 0, 4259885, 6, 0, 4259886, 6, 0, 4259887, 6, 0, 4259888, 6, 0, 4259889, 6, 0, 4259890, 6, 0, 4259891, 6, 0, 4259892, 6, 0, 4259893, 6, 0, 4259894, 6, 0, 4259895, 6, 0, 4259896, 6, 0, 4259897, 6, 0, 4259898, 9, 0 )
+
+[node name="PauseScreen" type="CanvasLayer" parent="."]
+
+[node name="PauseScreen" parent="PauseScreen" instance=ExtResource( 4 )]
+visible = false
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="Spike" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 731.543, 4016.27 )
+
+[node name="Spike2" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 688.092, 4016.27 )
+
+[node name="Spike5" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 818.445, 4016.27 )
+
+[node name="Spike6" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 774.994, 4016.27 )
+
+[node name="Spike3" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 644.641, 4016.27 )
+
+[node name="Spike4" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 600.693, 4016.27 )
+
+[node name="Spike7" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 1814.22, 4016.33 )
+
+[node name="Spike8" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 1770.77, 4016.33 )
+
+[node name="Spike13" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 3442.8, 3951.73 )
+
+[node name="Spike15" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 3431.57, 3567.22 )
+
+[node name="Spike14" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 3486.57, 3951.73 )
+
+[node name="Spike9" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 1901.12, 4016.33 )
+
+[node name="Spike10" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 1857.67, 4016.33 )
+
+[node name="Spike11" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 1727.32, 4016.33 )
+
+[node name="Spike12" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 1683.37, 4016.33 )
+
+[node name="Spike16" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 1431.64, 2608.24 )
+
+[node name="Spike17" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 1388.18, 2608.24 )
+
+[node name="Spike18" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 1518.53, 2608.24 )
+
+[node name="Spike19" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 1475.08, 2608.24 )
+
+[node name="Spike44" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 1146.08, 2159.24 )
+
+[node name="Spike20" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 1344.73, 2608.24 )
+
+[node name="Spike21" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 1300.78, 2608.24 )
+
+[node name="Spike42" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 33.3176, 3248.63 )
+
+[node name="Spike45" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( -10.1324, 3248.63 )
+
+[node name="Spike46" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( -54.0824, 3248.63 )
+
+[node name="Spike50" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 3280.79, 3951.2 )
+
+[node name="Spike51" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 3237.34, 3951.2 )
+
+[node name="Spike52" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 3193.39, 3951.2 )
+
+[node name="Spike47" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 59.1447, 1392.63 )
+
+[node name="Spike48" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 15.6946, 1392.63 )
+
+[node name="Spike49" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( -28.2554, 1392.63 )
+
+[node name="Spike22" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 2651.14, 2608.07 )
+
+[node name="Spike23" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 2607.69, 2608.07 )
+
+[node name="Spike24" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 2738.04, 2608.07 )
+
+[node name="Spike25" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 2694.59, 2608.07 )
+
+[node name="Spike26" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 2564.24, 2608.07 )
+
+[node name="Spike27" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 2520.29, 2608.07 )
+
+[node name="Spike28" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 3097.45, 1456.59 )
+
+[node name="Spike29" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 3054, 1456.59 )
+
+[node name="Spike30" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 3184.35, 1456.59 )
+
+[node name="Spike31" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 3140.9, 1456.59 )
+
+[node name="Spike32" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 3010.55, 1456.59 )
+
+[node name="Spike33" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 2966.6, 1456.59 )
+
+[node name="Spike43" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 3169.79, 687.959 )
+
+[node name="Spike40" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 2520.23, 1390.78 )
+
+[node name="Spike41" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 2476.28, 1390.78 )
+
+[node name="Spike34" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 793.066, 1456.35 )
+
+[node name="Spike35" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 749.616, 1456.35 )
+
+[node name="Spike36" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 879.967, 1456.35 )
+
+[node name="Spike37" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 836.516, 1456.35 )
+
+[node name="Spike38" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 706.167, 1456.35 )
+
+[node name="Spike39" parent="Spikes" instance=ExtResource( 8 )]
+position = Vector2( 662.217, 1456.35 )
+
+[node name="Enemies" type="Node2D" parent="."]
+position = Vector2( 65.59, -13.4543 )
+
+[node name="Goblin4" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 2458.33, 3237.11 )
+
+[node name="Goblin5" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 3418.02, 3237.11 )
+
+[node name="Goblin2" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 2398.38, 3558.67 )
+
+[node name="Goblin14" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 1861.45, 2529.91 )
+
+[node name="Goblin9" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 1757.35, 2023.03 )
+
+[node name="Goblin17" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 3254.74, 679.72 )
+
+[node name="Goblin16" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 2736.88, 1381.52 )
+
+[node name="Goblin7" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 985.279, 2154.5 )
+
+[node name="Goblin21" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 735.438, 681.018 )
+
+[node name="Goblin22" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 1912.04, 680.324 )
+
+[node name="Goblin20" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 612.145, 361.033 )
+
+[node name="Goblin23" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 2408.82, 359.796 )
+
+[node name="Skeleton" parent="Enemies" instance=ExtResource( 34 )]
+position = Vector2( 1407.44, 3942.48 )
+
+[node name="Skeleton3" parent="Enemies" instance=ExtResource( 34 )]
+position = Vector2( 150.282, 3236.45 )
+
+[node name="Skeleton4" parent="Enemies" instance=ExtResource( 34 )]
+position = Vector2( 2819.06, 2150.79 )
+
+[node name="Skeleton10" parent="Enemies" instance=ExtResource( 34 )]
+position = Vector2( 3343.86, 1382.47 )
+
+[node name="Skeleton5" parent="Enemies" instance=ExtResource( 34 )]
+position = Vector2( 2064.58, 2021.84 )
+
+[node name="Skeleton6" parent="Enemies" instance=ExtResource( 34 )]
+position = Vector2( 261.083, 1383.81 )
+
+[node name="Skeleton8" parent="Enemies" instance=ExtResource( 34 )]
+position = Vector2( 1553.67, 228.396 )
+
+[node name="Skeleton9" parent="Enemies" instance=ExtResource( 34 )]
+position = Vector2( 1232.65, 229.81 )
+
+[node name="Skeleton7" parent="Enemies" instance=ExtResource( 34 )]
+position = Vector2( 1400.9, 672.039 )
+
+[node name="Skeleton2" parent="Enemies" instance=ExtResource( 34 )]
+position = Vector2( 1919.72, 3241.06 )
+
+[node name="Crystals" type="Node2D" parent="."]
+
+[node name="Crystal" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 1014.79, 3943.68 )
+mode = "Score"
+
+[node name="Sprite" parent="Crystals/Crystal" index="1"]
+texture = ExtResource( 6 )
+
+[node name="Crystal12" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 1883.93, 3240.11 )
+mode = "Score"
+
+[node name="Sprite" parent="Crystals/Crystal12" index="1"]
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal12" index="2"]
+anims/Flash = SubResource( 1 )
+anims/Rest = SubResource( 2 )
+
+[node name="Crystal13" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 802.251, 2921.08 )
+mode = "Score"
+
+[node name="Sprite" parent="Crystals/Crystal13" index="1"]
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal13" index="2"]
+anims/Flash = SubResource( 3 )
+anims/Rest = SubResource( 4 )
+
+[node name="Crystal5" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 2703.28, 3561.13 )
+mode = "Score"
+
+[node name="Crystal2" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 1558.6, 3944.52 )
+
+[node name="Sprite" parent="Crystals/Crystal2" index="1"]
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal2" index="2"]
+anims/Flash = SubResource( 5 )
+anims/Rest = SubResource( 6 )
+
+[node name="Crystal14" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 1038.53, 2921.36 )
+
+[node name="Sprite" parent="Crystals/Crystal14" index="1"]
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal14" index="2"]
+anims/Flash = SubResource( 7 )
+anims/Rest = SubResource( 8 )
+
+[node name="Crystal10" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 3482.5, 3560.63 )
+
+[node name="Sprite" parent="Crystals/Crystal10" index="1"]
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal10" index="2"]
+anims/Flash = SubResource( 9 )
+anims/Rest = SubResource( 10 )
+
+[node name="Crystal11" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 3546.24, 3561.76 )
+
+[node name="Sprite" parent="Crystals/Crystal11" index="1"]
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal11" index="2"]
+anims/Flash = SubResource( 11 )
+anims/Rest = SubResource( 12 )
+
+[node name="Crystal4" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 2632.34, 3560.8 )
+mode = "Score"
+
+[node name="Sprite" parent="Crystals/Crystal4" index="1"]
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal4" index="2"]
+anims/Flash = SubResource( 13 )
+anims/Rest = SubResource( 14 )
+
+[node name="Crystal6" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 3593.16, 3944.56 )
+mode = "Score"
+
+[node name="Sprite" parent="Crystals/Crystal6" index="1"]
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal6" index="2"]
+anims/Flash = SubResource( 15 )
+anims/Rest = SubResource( 16 )
+
+[node name="Crystal7" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 3658.27, 3944.56 )
+mode = "Score"
+
+[node name="Sprite" parent="Crystals/Crystal7" index="1"]
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal7" index="2"]
+anims/Flash = SubResource( 17 )
+anims/Rest = SubResource( 18 )
+
+[node name="Crystal8" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 3610.76, 3561.92 )
+mode = "Score"
+
+[node name="Sprite" parent="Crystals/Crystal8" index="1"]
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal8" index="2"]
+anims/Flash = SubResource( 19 )
+anims/Rest = SubResource( 20 )
+
+[node name="Crystal16" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 3609.08, 3241.49 )
+
+[node name="Sprite" parent="Crystals/Crystal16" index="1"]
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal16" index="2"]
+anims/Flash = SubResource( 21 )
+anims/Rest = SubResource( 22 )
+
+[node name="Crystal17" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 3673.6, 3241.64 )
+mode = "Score"
+
+[node name="Sprite" parent="Crystals/Crystal17" index="1"]
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal17" index="2"]
+anims/Flash = SubResource( 23 )
+anims/Rest = SubResource( 24 )
+
+[node name="Crystal9" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 3674.86, 3561.92 )
+mode = "Score"
+
+[node name="Sprite" parent="Crystals/Crystal9" index="1"]
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal9" index="2"]
+anims/Flash = SubResource( 25 )
+anims/Rest = SubResource( 26 )
+
+[node name="Crystal3" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 1208.21, 3945.18 )
+mode = "Stamina"
+
+[node name="Crystal15" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 2616.47, 3242.94 )
+mode = "Stamina"
+
+[node name="Crystal22" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 1708.31, 2024.58 )
+mode = "Stamina"
+
+[node name="Crystal26" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 2050.57, 2537.42 )
+mode = "Stamina"
+
+[node name="Crystal49" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 3445.99, 2535.92 )
+mode = "Stamina"
+
+[node name="Crystal23" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 1645.19, 2024.3 )
+mode = "Stamina"
+
+[node name="Crystal43" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 1198.19, 2153.3 )
+mode = "Stamina"
+
+[node name="Crystal18" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 2044.7, 2024.74 )
+
+[node name="Sprite" parent="Crystals/Crystal18" index="1"]
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal18" index="2"]
+anims/Flash = SubResource( 27 )
+anims/Rest = SubResource( 28 )
+
+[node name="Crystal20" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 1924.85, 2024.74 )
+
+[node name="Sprite" parent="Crystals/Crystal20" index="1"]
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal20" index="2"]
+anims/Flash = SubResource( 29 )
+anims/Rest = SubResource( 30 )
+
+[node name="Crystal42" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 2974.61, 2152.19 )
+
+[node name="Sprite" parent="Crystals/Crystal42" index="1"]
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal42" index="2"]
+anims/Flash = SubResource( 31 )
+anims/Rest = SubResource( 32 )
+
+[node name="Crystal48" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 3521.61, 2536.19 )
+
+[node name="Sprite" parent="Crystals/Crystal48" index="1"]
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal48" index="2"]
+anims/Flash = SubResource( 33 )
+anims/Rest = SubResource( 34 )
+
+[node name="Crystal35" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 1027.08, 680.767 )
+
+[node name="Sprite" parent="Crystals/Crystal35" index="1"]
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal35" index="2"]
+anims/Flash = SubResource( 35 )
+anims/Rest = SubResource( 36 )
+
+[node name="Crystal37" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 1194.35, 233.708 )
+
+[node name="Sprite" parent="Crystals/Crystal37" index="1"]
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal37" index="2"]
+anims/Flash = SubResource( 37 )
+anims/Rest = SubResource( 38 )
+
+[node name="Crystal36" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 1130.27, 233.708 )
+
+[node name="Sprite" parent="Crystals/Crystal36" index="1"]
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal36" index="2"]
+anims/Flash = SubResource( 39 )
+anims/Rest = SubResource( 40 )
+
+[node name="Crystal19" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 2306.85, 2025.7 )
+mode = "Score"
+
+[node name="Sprite" parent="Crystals/Crystal19" index="1"]
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal19" index="2"]
+anims/Flash = SubResource( 41 )
+anims/Rest = SubResource( 42 )
+
+[node name="Crystal21" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 2242.94, 2025.9 )
+mode = "Score"
+
+[node name="Sprite" parent="Crystals/Crystal21" index="1"]
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal21" index="2"]
+anims/Flash = SubResource( 43 )
+anims/Rest = SubResource( 44 )
+
+[node name="Crystal44" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 2306.85, 2025.7 )
+mode = "Score"
+
+[node name="Sprite" parent="Crystals/Crystal44" index="1"]
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal44" index="2"]
+anims/Flash = SubResource( 45 )
+anims/Rest = SubResource( 46 )
+
+[node name="Crystal45" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 2242.94, 2025.9 )
+mode = "Score"
+
+[node name="Sprite" parent="Crystals/Crystal45" index="1"]
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal45" index="2"]
+anims/Flash = SubResource( 47 )
+anims/Rest = SubResource( 48 )
+
+[node name="Crystal46" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 3661.44, 2536.17 )
+mode = "Score"
+
+[node name="Sprite" parent="Crystals/Crystal46" index="1"]
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal46" index="2"]
+anims/Flash = SubResource( 49 )
+anims/Rest = SubResource( 50 )
+
+[node name="Crystal47" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 3597.52, 2536.36 )
+mode = "Score"
+
+[node name="Sprite" parent="Crystals/Crystal47" index="1"]
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal47" index="2"]
+anims/Flash = SubResource( 51 )
+anims/Rest = SubResource( 52 )
+
+[node name="Crystal27" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 3553.36, 1383.69 )
+mode = "Stamina"
+
+[node name="Crystal28" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 2713.1, 1383.85 )
+
+[node name="Sprite" parent="Crystals/Crystal28" index="1"]
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal28" index="2"]
+anims/Flash = SubResource( 53 )
+anims/Rest = SubResource( 54 )
+
+[node name="Crystal29" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 2650.42, 1384.03 )
+mode = "Score"
+
+[node name="Sprite" parent="Crystals/Crystal29" index="1"]
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal29" index="2"]
+anims/Flash = SubResource( 55 )
+anims/Rest = SubResource( 56 )
+
+[node name="Crystal30" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 3617.22, 1384.12 )
+mode = "Score"
+
+[node name="Sprite" parent="Crystals/Crystal30" index="1"]
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal30" index="2"]
+anims/Flash = SubResource( 57 )
+anims/Rest = SubResource( 58 )
+
+[node name="Crystal33" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 1714.36, 233.69 )
+mode = "Stamina"
+
+[node name="Crystal41" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 2109.18, 683.21 )
+mode = "Stamina"
+
+[node name="Crystal40" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 963.592, 680.453 )
+mode = "Stamina"
+
+[node name="Crystal39" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 569.154, 360.503 )
+mode = "Stamina"
+
+[node name="Crystal34" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 1778.22, 233.12 )
+mode = "Score"
+
+[node name="Sprite" parent="Crystals/Crystal34" index="1"]
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal34" index="2"]
+anims/Flash = SubResource( 59 )
+anims/Rest = SubResource( 60 )
+
+[node name="Crystal38" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 2374.01, 359.176 )
+mode = "Score"
+
+[node name="Sprite" parent="Crystals/Crystal38" index="1"]
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal38" index="2"]
+anims/Flash = SubResource( 61 )
+anims/Rest = SubResource( 62 )
+
+[node name="Crystal31" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 3484.14, 680.396 )
+mode = "Score"
+
+[node name="Sprite" parent="Crystals/Crystal31" index="1"]
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal31" index="2"]
+anims/Flash = SubResource( 63 )
+anims/Rest = SubResource( 64 )
+
+[node name="Crystal32" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 3547.4, 679.779 )
+mode = "Score"
+
+[node name="Sprite" parent="Crystals/Crystal32" index="1"]
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal32" index="2"]
+anims/Flash = SubResource( 65 )
+anims/Rest = SubResource( 66 )
+
+[node name="Crystal24" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 1663.16, 2536.46 )
+
+[node name="Sprite" parent="Crystals/Crystal24" index="1"]
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal24" index="2"]
+anims/Flash = SubResource( 67 )
+anims/Rest = SubResource( 68 )
+
+[node name="Crystal25" parent="Crystals" instance=ExtResource( 9 )]
+position = Vector2( 2382.79, 2535.5 )
+mode = "Score"
+
+[node name="Sprite" parent="Crystals/Crystal25" index="1"]
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" parent="Crystals/Crystal25" index="2"]
+anims/Flash = SubResource( 69 )
+anims/Rest = SubResource( 70 )
+
+[node name="Falling Spikes" type="Node2D" parent="."]
+
+[node name="FallingSpikes" parent="Falling Spikes" instance=ExtResource( 10 )]
+position = Vector2( 2310.39, 3772.5 )
+
+[node name="FallingSpikes2" parent="Falling Spikes" instance=ExtResource( 10 )]
+position = Vector2( 2507.56, 3772.39 )
+
+[node name="FallingSpikes3" parent="Falling Spikes" instance=ExtResource( 10 )]
+position = Vector2( 2706.28, 3772.33 )
+
+[node name="FallingSpikes4" parent="Falling Spikes" instance=ExtResource( 10 )]
+position = Vector2( 772.435, 3067.8 )
+
+[node name="FallingSpikes5" parent="Falling Spikes" instance=ExtResource( 10 )]
+position = Vector2( 1035.61, 3067.69 )
+
+[node name="FallingSpikes6" parent="Falling Spikes" instance=ExtResource( 10 )]
+position = Vector2( 905.325, 3067.63 )
+
+[node name="FallingSpikes7" parent="Falling Spikes" instance=ExtResource( 10 )]
+position = Vector2( 1666.46, 2173.45 )
+
+[node name="FallingSpikes9" parent="Falling Spikes" instance=ExtResource( 10 )]
+position = Vector2( 1825.35, 2172.28 )
+
+[node name="FallingSpikes8" parent="Falling Spikes" instance=ExtResource( 10 )]
+position = Vector2( 979.339, 2300.26 )
+
+[node name="FallingSpikes13" parent="Falling Spikes" instance=ExtResource( 10 )]
+position = Vector2( 1138.23, 2299.09 )
+
+[node name="FallingSpikes14" parent="Falling Spikes" instance=ExtResource( 10 )]
+position = Vector2( 2784.37, 2301.25 )
+
+[node name="FallingSpikes15" parent="Falling Spikes" instance=ExtResource( 10 )]
+position = Vector2( 2943.26, 2300.08 )
+
+[node name="FallingSpikes10" parent="Falling Spikes" instance=ExtResource( 10 )]
+position = Vector2( 1983.61, 2172.45 )
+
+[node name="FallingSpikes11" parent="Falling Spikes" instance=ExtResource( 10 )]
+position = Vector2( 2141.38, 2172.28 )
+
+[node name="FallingSpikes12" parent="Falling Spikes" instance=ExtResource( 10 )]
+position = Vector2( 2300.46, 2172.28 )
+
+[node name="FallingSpikes16" parent="Falling Spikes" instance=ExtResource( 10 )]
+position = Vector2( 1140.53, 380.755 )
+
+[node name="FallingSpikes17" parent="Falling Spikes" instance=ExtResource( 10 )]
+position = Vector2( 1299.42, 379.585 )
+
+[node name="FallingSpikes18" parent="Falling Spikes" instance=ExtResource( 10 )]
+position = Vector2( 453.412, 507.565 )
+
+[node name="FallingSpikes19" parent="Falling Spikes" instance=ExtResource( 10 )]
+position = Vector2( 612.303, 506.396 )
+
+[node name="FallingSpikes20" parent="Falling Spikes" instance=ExtResource( 10 )]
+position = Vector2( 2258.44, 508.555 )
+
+[node name="FallingSpikes25" parent="Falling Spikes" instance=ExtResource( 10 )]
+position = Vector2( 3632.45, 443.728 )
+
+[node name="FallingSpikes22" parent="Falling Spikes" instance=ExtResource( 10 )]
+position = Vector2( 1457.68, 379.755 )
+
+[node name="FallingSpikes23" parent="Falling Spikes" instance=ExtResource( 10 )]
+position = Vector2( 1615.45, 379.585 )
+
+[node name="FallingSpikes24" parent="Falling Spikes" instance=ExtResource( 10 )]
+position = Vector2( 1774.53, 379.585 )
+
+[node name="MovingPlatforms" type="Node2D" parent="."]
+
+[node name="MovingPlatform" parent="MovingPlatforms" instance=ExtResource( 11 )]
+position = Vector2( 3314.58, 3250.35 )
+move_to = Vector2( 0, 640 )
+speed = 3.0
+
+[node name="MovingPlatform2" parent="MovingPlatforms" instance=ExtResource( 11 )]
+position = Vector2( 794.465, 3285 )
+move_to = Vector2( 600, 0 )
+speed = 3.0
+
+[node name="MovingPlatform5" parent="MovingPlatforms" instance=ExtResource( 11 )]
+position = Vector2( 2504.93, 731.236 )
+move_to = Vector2( 600, 0 )
+speed = 3.0
+
+[node name="MovingPlatform3" parent="MovingPlatforms" instance=ExtResource( 11 )]
+position = Vector2( 69.0215, 2658.92 )
+move_to = Vector2( 0, 540 )
+speed = 3.0
+
+[node name="MovingPlatform4" parent="MovingPlatforms" instance=ExtResource( 11 )]
+position = Vector2( 97.5303, 776.416 )
+move_to = Vector2( 0, 540 )
+speed = 3.0
+
+[node name="OrbitingPlatformController" parent="." instance=ExtResource( 27 )]
+position = Vector2( 2020.96, 1581.22 )
+radius = Vector2( 300, 256 )
+rotation_duration = 7.0
+
+[node name="MovingPlatform4" parent="OrbitingPlatformController" instance=ExtResource( 11 )]
+position = Vector2( -157.705, 217.774 )
+move_to = Vector2( 0, 0 )
+speed = 3.0
+
+[node name="MovingPlatform3" parent="OrbitingPlatformController" instance=ExtResource( 11 )]
+position = Vector2( -255.204, -134.575 )
+move_to = Vector2( 0, 0 )
+speed = 3.0
+
+[node name="MovingPlatform" parent="OrbitingPlatformController" instance=ExtResource( 11 )]
+position = Vector2( 157.705, -217.774 )
+move_to = Vector2( 0, 0 )
+speed = 3.0
+
+[node name="MovingPlatform2" parent="OrbitingPlatformController" instance=ExtResource( 11 )]
+position = Vector2( 255.204, 134.575 )
+move_to = Vector2( 0, 0 )
+speed = 3.0
+
+[node name="Portal" parent="." instance=ExtResource( 32 )]
+position = Vector2( 3643.13, 191.547 )
+
+[node name="Pickups" type="Node2D" parent="."]
+position = Vector2( -13.4848, -19.478 )
+
+[node name="Chest" parent="Pickups" instance=ExtResource( 25 )]
+position = Vector2( 2002.55, 2020.28 )
+
+[node name="Chest2" parent="Pickups" instance=ExtResource( 25 )]
+position = Vector2( 1482.36, 223.565 )
+
+[node name="ButterChicken" type="Area2D" parent="Pickups"]
+position = Vector2( 982.991, 2523.76 )
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pickups/ButterChicken"]
+position = Vector2( -46.9883, 388.561 )
+scale = Vector2( 0.70169, 0.779029 )
+frames = SubResource( 71 )
+animation = "Mince"
+frame = 2
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickups/ButterChicken"]
+position = Vector2( -47.1001, 390.479 )
+shape = SubResource( 72 )
+
+[node name="MincePie" type="Area2D" parent="Pickups"]
+position = Vector2( 3694.92, 1394.19 )
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pickups/MincePie"]
+scale = Vector2( 0.702, 0.779 )
+frames = SubResource( 73 )
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickups/MincePie"]
+visible = false
+shape = SubResource( 74 )
+
+[node name="SteakandCheese" type="Area2D" parent="Pickups"]
+position = Vector2( 3670.93, 704.601 )
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pickups/SteakandCheese"]
+frames = SubResource( 75 )
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickups/SteakandCheese"]
+visible = false
+shape = SubResource( 76 )
+
+[node name="Signpost" parent="." instance=ExtResource( 35 )]
+position = Vector2( 934.29, 3917.29 )
+text = "Beware! The skeleton can block your attacks. Evade his shield to damage him."
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 33 )
+autoplay = true
+[connection signal="body_entered" from="Pickups/ButterChicken" to="Pickups/ButterChicken" method="_on_body_entered"]
+[connection signal="body_entered" from="Pickups/MincePie" to="Pickups/MincePie" method="_on_body_entered"]
+[connection signal="body_entered" from="Pickups/SteakandCheese" to="Pickups/SteakandCheese" method="_on_body_entered"]
+
+[editable path="Crystals/Crystal"]
+
+[editable path="Crystals/Crystal12"]
+
+[editable path="Crystals/Crystal13"]
+
+[editable path="Crystals/Crystal2"]
+
+[editable path="Crystals/Crystal14"]
+
+[editable path="Crystals/Crystal10"]
+
+[editable path="Crystals/Crystal11"]
+
+[editable path="Crystals/Crystal4"]
+
+[editable path="Crystals/Crystal6"]
+
+[editable path="Crystals/Crystal7"]
+
+[editable path="Crystals/Crystal8"]
+
+[editable path="Crystals/Crystal16"]
+
+[editable path="Crystals/Crystal17"]
+
+[editable path="Crystals/Crystal9"]
+
+[editable path="Crystals/Crystal18"]
+
+[editable path="Crystals/Crystal20"]
+
+[editable path="Crystals/Crystal42"]
+
+[editable path="Crystals/Crystal48"]
+
+[editable path="Crystals/Crystal35"]
+
+[editable path="Crystals/Crystal37"]
+
+[editable path="Crystals/Crystal36"]
+
+[editable path="Crystals/Crystal19"]
+
+[editable path="Crystals/Crystal21"]
+
+[editable path="Crystals/Crystal44"]
+
+[editable path="Crystals/Crystal45"]
+
+[editable path="Crystals/Crystal46"]
+
+[editable path="Crystals/Crystal47"]
+
+[editable path="Crystals/Crystal28"]
+
+[editable path="Crystals/Crystal29"]
+
+[editable path="Crystals/Crystal30"]
+
+[editable path="Crystals/Crystal34"]
+
+[editable path="Crystals/Crystal38"]
+
+[editable path="Crystals/Crystal31"]
+
+[editable path="Crystals/Crystal32"]
+
+[editable path="Crystals/Crystal24"]
+
+[editable path="Crystals/Crystal25"]

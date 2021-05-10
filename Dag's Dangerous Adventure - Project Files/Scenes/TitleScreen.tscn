@@ -1,0 +1,290 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Art/MainMenuBackground.PNG" type="Texture" id=1]
+[ext_resource path="res://Art/PermanentMarker-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Art/Controls/icons8-circled-d-50.png" type="Texture" id=3]
+[ext_resource path="res://Art/Controls/icons8-left-click-50.png" type="Texture" id=4]
+[ext_resource path="res://Art/Controls/icons8-circled-w-50.png" type="Texture" id=5]
+[ext_resource path="res://Art/Controls/icons8-circled-a-50.png" type="Texture" id=6]
+[ext_resource path="res://Art/Controls/icons8-esc-mac-50.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/TitleScreen.gd" type="Script" id=8]
+[ext_resource path="res://Art/ButtonStyle.tres" type="StyleBox" id=9]
+[ext_resource path="res://Art/ButtonStyleHover.tres" type="StyleBox" id=10]
+[ext_resource path="res://Art/ButtonStylePressed.tres" type="StyleBox" id=11]
+[ext_resource path="res://Music/MenuMusic.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Sprites/Dag/Idle0.png" type="Texture" id=13]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.0235294, 0.843137, 0.764706, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="TitleScreen" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 1919.0
+margin_bottom = 1082.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Title" type="Label" parent="."]
+margin_top = 56.6324
+margin_right = 1912.0
+margin_bottom = 205.632
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 1, 0.905882, 1 )
+text = "Dangerous Dag's Adventure"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Controls" type="Panel" parent="."]
+modulate = Color( 1, 1, 1, 0.807843 )
+margin_left = 1362.31
+margin_top = 288.149
+margin_right = 1859.31
+margin_bottom = 604.149
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Mouse_LClick" type="TextureRect" parent="Controls"]
+margin_left = 373.748
+margin_top = 156.227
+margin_right = 451.748
+margin_bottom = 250.226
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Controls/Mouse_LClick"]
+margin_left = 6.0
+margin_top = -49.0
+margin_right = 78.0
+margin_bottom = -11.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 1, 0.905882, 1 )
+text = "Shoot"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="D_Key" type="TextureRect" parent="Controls"]
+margin_left = 235.991
+margin_top = 210.108
+margin_right = 285.991
+margin_bottom = 260.108
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="Controls/D_Key"]
+margin_left = -3.6803
+margin_top = -81.6202
+margin_right = 68.3197
+margin_bottom = -8.62018
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 1, 0.905882, 1 )
+text = "Move Right"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="A_Key" type="TextureRect" parent="Controls"]
+margin_left = 55.3638
+margin_top = 211.309
+margin_right = 105.364
+margin_bottom = 261.309
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Controls/A_Key"]
+margin_left = -28.0793
+margin_top = -76.0
+margin_right = 67.9207
+margin_bottom = -3.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 1, 0.905882, 1 )
+text = "Move Left"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="W_Key" type="TextureRect" parent="Controls"]
+margin_left = 144.717
+margin_top = 151.794
+margin_right = 194.717
+margin_bottom = 201.794
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Controls/W_Key"]
+margin_left = -9.20044
+margin_top = -53.0239
+margin_right = 62.7996
+margin_bottom = -15.0239
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 1, 0.905882, 1 )
+text = "Jump"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Esc_Key" type="TextureRect" parent="Controls"]
+margin_left = 2.12134
+margin_top = 5.65686
+margin_right = 66.1213
+margin_bottom = 70.6569
+texture = ExtResource( 7 )
+expand = true
+
+[node name="Label3" type="Label" parent="Controls/Esc_Key"]
+margin_left = 74.5338
+margin_top = 13.08
+margin_right = 146.534
+margin_bottom = 51.08
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 1, 0.905882, 1 )
+text = "Pause"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Information" type="Panel" parent="."]
+modulate = Color( 1, 1, 1, 0.807843 )
+margin_left = 1361.0
+margin_top = 657.803
+margin_right = 1858.0
+margin_bottom = 973.803
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="Information"]
+margin_left = 33.0
+margin_top = 14.0
+margin_right = 476.0
+margin_bottom = 292.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 1, 0.905882, 1 )
+text = "Objective: 
+Help Dag retrieve three pies from each world. You'll need to run, jump and shoot your way to a tasty finish.
+There are also bonus collectables for the keen explorer."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Author" type="Label" parent="."]
+margin_left = 20.9869
+margin_top = 976.807
+margin_right = 215.987
+margin_bottom = 1014.81
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 1, 0.905882, 1 )
+text = "Robert Adamson"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Date" type="Label" parent="Author"]
+margin_left = -0.412613
+margin_top = 35.3353
+margin_right = 195.587
+margin_bottom = 73.3353
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 1, 0.905882, 1 )
+text = "Semester 1, 2021"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Button" parent="."]
+margin_left = 108.326
+margin_top = 602.788
+margin_right = 443.326
+margin_bottom = 698.788
+custom_styles/hover = ExtResource( 10 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/normal = ExtResource( 9 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.0235294, 0.843137, 0.764706, 1 )
+custom_colors/font_color_hover = Color( 0.0235294, 0.843137, 0.764706, 1 )
+custom_colors/font_color_pressed = Color( 0.0235294, 0.843137, 0.764706, 1 )
+text = "Start Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Button" parent="."]
+margin_left = 110.656
+margin_top = 795.325
+margin_right = 444.656
+margin_bottom = 878.325
+custom_styles/hover = ExtResource( 10 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = ExtResource( 9 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.0235294, 0.843137, 0.764706, 1 )
+custom_colors/font_color_hover = Color( 0.0235294, 0.843137, 0.764706, 1 )
+custom_colors/font_color_pressed = Color( 0.0235294, 0.843137, 0.764706, 1 )
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+autoplay = true
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 275.984, 395.112 )
+scale = Vector2( 4.02425, 4.29538 )
+texture = ExtResource( 13 )
+[connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
